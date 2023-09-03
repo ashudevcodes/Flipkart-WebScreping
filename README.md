@@ -1,6 +1,6 @@
 # Flipkart Keyboard Skin Scraper
 
-This Python program is a web scraper that extracts information about keyboard skins available on Flipkart. It collects data such as product reviews, names, prices, and links, and then filters the products that contain the keywords "cover" or "skin" in their names. The filtered data is saved to a CSV file named "scrap_data."
+This Python program is a web scraper that extracts information about keyboard skins available on Flipkart. It collects data such as product reviews, names, prices, and links, and then filters the products that contain the keywords "cover" or "skin" in their names. The filtered data is saved to a CSV file named "scrap_data." You can also scrape data on Flipkart by changing the class of tags in the program. Feel free to make modifications as needed. 
 
 ## Requirements
 
