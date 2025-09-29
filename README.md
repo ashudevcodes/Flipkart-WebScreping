@@ -1,57 +1,77 @@
-# Flipkart WEBScraper
+# Flipkart Web Scraping utilty
 
-This Python program is a web scraper that extracts information about keyboard skins available on Flipkart. It collects data such as product reviews, names, prices, and links, and then filters the products that contain the keywords "cover" or "skin" in their names. The filtered data is saved to a CSV file named "scrap_data." You can also scrape data on Flipkart by changing the class of tags in the program. Feel free to make modifications as needed. 
+A program to scrape product information from [Flipkart](https://www.flipkart.com) search result pages. The script extracts product titles, prices, reviews, and links, then saves the data into a CSV file for easy analysis.
+
+## Features
+
+- **Command-line and Interactive Modes**:  
+  - Pass all required class names and search query as command-line arguments, or
+  - Run interactively and enter details when prompted.
+- **Customizable Scraping**:  
+  Specify the class names for product titles, prices, reviews, and product links for better adaptability to Flipkart's frequently changing HTML structure.
+- **CSV Output**:  
+  Results are saved in `allProducts.csv` for convenient analysis.
 
 ## Requirements
 
-Before using this program, make sure you have the following requirements installed:
+- Python 3.8+
+- [uv](https://github.com/astral-sh/uv) (For fast and isolated package management)
+- pip (for initial setup if not using `uv`)
 
-- Python 3.x
-- Required Python libraries: requests, pandas, BeautifulSoup (bs4)
+## Installation
 
-You can install the required libraries using pip:
+1. **Install [uv](https://github.com/astral-sh/uv):**
+   ```bash
+   pip install uv
+   ```
+   or follow instructions on the [uv GitHub page](https://github.com/astral-sh/uv#installation).
 
-```bash
-pip install requests pandas beautifulsoup4
-```
+2. **Install dependencies using uv:**
+   ```bash
+   uv sync
+   ```
 
 ## Usage
 
-1. Clone or download this repository to your local machine.
+### 1. Command-line Mode
 
-2. Open a terminal or command prompt and navigate to the folder where you've saved the program files.
+You can run the script by passing all required parameters:
+```bash
+uv run main.py "<search_query>" "<title_class>" "<price_class>" "<review_class>" "<product_link_class>"
+```
+Example:
+```bash
+uv run main.py "mobile" "4rR01T" "30jeq3" "LWZlK" "fQZEK"
+```
 
-3. Run the program by executing the following command:
+### 2. Interactive Mode
 
-   ```bash
-   python flipkart_scraper.py
-   ```
+If you run the script without command-line arguments, it will prompt you to input:
+- The search query (what you want to search for)
+- The class names for title, price, reviews, and product link
 
-   This will start the web scraping process. The program will fetch data from Flipkart's search results pages for "keyboard skin."
+```bash
+uv run main.py
+```
+Then, follow the prompts.
 
-4. Once the scraping is complete, the program will generate a DataFrame with the collected data and filter products containing "cover" or "skin" in their names.
+### 3. Output
 
-5. The filtered data will be displayed on the terminal, and it will also be saved to a CSV file named "scrap_data.csv" in the same directory.
+- After the script runs, it will print the scraped data as a table.
+- It will save the results in a file named `allProducts.csv` in the current directory.
 
-## Customization
+## Finding Class Names
 
-You can customize the program by modifying the following variables in the code:
+1. Go to [Flipkart](https://www.flipkart.com) and search for your desired product.
+2. Use your browser's developer tools (F12) to inspect the HTML elements for product titles, prices, reviews, and product links.
+3. Copy their class names and use them as script arguments or input.
 
-- `url`: You can change the Flipkart search URL to target different search results.
+## Notes
 
-- `headers`: You can modify the user-agent in the headers to mimic different web browsers.
-
-- Keywords for filtering: If you want to filter products based on different keywords, you can adjust the `df['name'].str.contains('cover', regex=True)` and `df['name'].str.contains('skin', regex=True)` conditions in the code.
-
-## Data Output
-
-The program generates a CSV file named "scrap_data.csv" containing the following columns:
-
-- `review`: Product reviews.
-- `name`: Product names (lowercased).
-- `price`: Product prices (in INR).
-- `link`: Product links on Flipkart.
+- The script scrapes only the first page of results by default. You can modify the `range` in the script to scrape multiple pages.
+- Flipkart's HTML structure may change over time, so you may need to update the class names regularly.
 
 ## Disclaimer
 
-This program is for educational purposes and should be used responsibly and in compliance with Flipkart's terms of service and scraping policies. Be mindful of rate limiting and avoid overloading Flipkart's servers.
+This script is for educational purposes only.  
+Scraping websites may violate their Terms of Service. Use responsibly.
