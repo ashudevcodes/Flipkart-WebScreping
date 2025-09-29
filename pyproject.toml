@@ -1,0 +1,13 @@
+[project]
+name = "flipkart-webscreping"
+version = "0.1.0"
+description = "tool to extract, filter, and export product data from Flipkart"
+readme = "README.md"
+requires-python = ">=3.13"
+dependencies = [
+    "beautifulsoup4>=4.14.0",
+    "lxml>=6.0.2",
+    "numpy>=2.3.3",
+    "pandas>=2.3.2",
+    "requests>=2.32.5",
+]
