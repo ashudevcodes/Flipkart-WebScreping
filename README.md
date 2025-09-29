@@ -1,4 +1,5 @@
 # Flipkart Web Scraping utilty
+<kdb><img width="1919" height="1079" src="https://github.com/user-attachments/assets/62f96743-b73c-4890-8e8e-d6d9445ae080" /></kdb>
 
 A program to scrape product information from [Flipkart](https://www.flipkart.com) search result pages. The script extracts product titles, prices, reviews, and links, then saves the data into a CSV file for easy analysis.
 
